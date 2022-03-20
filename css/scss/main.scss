@@ -11,7 +11,7 @@
   --clr-accent-dark: rgb(163, 38, 0);
   --clr-secondary: rgb(0, 62, 163);
 
-  --br: 0.5em;
+  --br: 0.1rem;
 }
 
 body {
@@ -36,7 +36,7 @@ img {
 
 .game {
   position: relative;
-  width: 12.5em;
+  width: 13.5em;
 }
 
 .streamers {
@@ -59,7 +59,11 @@ img {
   clip-path: polygon(100% 0%, 100% 100%, 51% 73%, 0 100%, 0 0);
 }
 
+/*front styling */
+
 .front {
+  transition: 250ms;
+
   .thumbnail {
     border-radius: var(--br);
   }
@@ -70,7 +74,6 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid red;
   }
 
   .streamers img {
@@ -85,6 +88,36 @@ img {
   }
 }
 
-.back {
+.more-info {
   display: none;
+}
+
+/*background styling with transform and transition */
+.background {
+  background: #234;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transform: scale(0.2);
+
+  border-radius: var(--br);
+  opacity: 0;
+}
+/*hover into the card and grey background pop outs */
+.game:hover {
+  .front {
+    transform: translateY(-30%) scale(0.9);
+
+    .stats {
+      opacity: 0;
+    }
+  }
+  .background {
+    transition: transfrom 200ms ease-in-out, opacity 100ms linear;
+    opacity: 1;
+    transform: scale(1.5, 1.2);
+  }
 }
