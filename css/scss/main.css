@@ -12,6 +12,7 @@
   --clr-accent-dark: rgb(163, 38, 0);
   --clr-secondary: rgb(0, 62, 163);
   --br: 0.1rem;
+  --transition: transform 200ms cubic-bezier(0.21, 1, 0.81, 1);
 }
 
 body {
@@ -56,12 +57,15 @@ img {
   position: absolute;
   top: 0;
   right: 1em;
+  z-index: 1000;
   font-weight: bold;
   font-size: 1.125rem;
   background-color: red;
   padding: 0.5em;
   -webkit-clip-path: polygon(100% 0%, 100% 100%, 51% 73%, 0 100%, 0 0);
           clip-path: polygon(100% 0%, 100% 100%, 51% 73%, 0 100%, 0 0);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 /*front styling */
@@ -125,9 +129,19 @@ img {
 }
 
 /*hover into the card and grey background pop outs */
+.game:hover .rank {
+  -webkit-transform: translate(200%, -65%);
+          transform: translate(200%, -65%);
+}
+
 .game:hover .front {
   -webkit-transform: translateY(-30%) scale(0.9);
           transform: translateY(-30%) scale(0.9);
+}
+
+.game:hover .front .game__name {
+  -webkit-animation: game__name 250ms forwards;
+          animation: game__name 250ms forwards;
 }
 
 .game:hover .front .stats {
@@ -140,5 +154,51 @@ img {
   opacity: 1;
   -webkit-transform: scale(1.5, 1.2);
           transform: scale(1.5, 1.2);
+}
+
+@-webkit-keyframes game__name {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+  20% {
+    text-align: left;
+    opacity: 0;
+  }
+  50% {
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    text-align: center;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+@keyframes game__name {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+  20% {
+    text-align: left;
+    opacity: 0;
+  }
+  50% {
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    text-align: center;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
 }
 /*# sourceMappingURL=main.css.map */
