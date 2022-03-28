@@ -106,6 +106,17 @@ img {
           align-items: center;
 }
 
+.front .viewers::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f007";
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 .front .streamers img {
   border: 1px solid var(--clr-dark);
 }
