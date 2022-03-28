@@ -46,6 +46,16 @@ img {
   font-weight: bold;
 }
 
+.icon::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 .game {
   position: relative;
   width: 13.5em;
@@ -92,16 +102,17 @@ img {
     align-items: center;
   }
 
+  .viewers {
+    display: flex;
+    align-items: center;
+  }
+
   //psuedo-element setup font-awesome icon
   .viewers::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 400;
     content: "\f007";
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
+    color: gold;
+    font-size: 0.75em;
+    margin-right: 0.5em;
   }
 
   .streamers img {
